@@ -1,8 +1,10 @@
 const form = document.querySelector('#form')
 const username = document.querySelector('#username');
+const phoneno = document.querySelector('#phoneno');
 const email = document.querySelector('#email');
 const password = document.querySelector('#password');
 const cpassword = document.querySelector('#cpassword');
+
 
 form.addEventListener('submit',(e)=>{
     
@@ -13,6 +15,7 @@ form.addEventListener('submit',(e)=>{
 
 function validateInputs(){
     const usernameVal = username.value.trim()
+    const phonenoVal = phoneno.value.trim()
     const emailVal = email.value.trim();
     const passwordVal = password.value.trim();
     const cpasswordVal = cpassword.value.trim();
@@ -25,7 +28,13 @@ function validateInputs(){
     else{
         setSuccess(username)
     }
-
+    if(phonenoVal===''){
+        success=false;
+        setError(phoneno,'Contact Number is required')
+    }
+    else{
+        setSuccess(username)
+    }
     if(emailVal===''){
         success = false;
         setError(email,'Email is required')
